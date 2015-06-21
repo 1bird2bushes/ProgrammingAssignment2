@@ -6,7 +6,8 @@
 ## the cache rather than recalculating
 
 ## makeCacheMatrix will take in a matrix and stores it as well as the inverse (initialized as NULL)
-## in a global environment
+## in a global environment. The first time the function is fun will assign NULL to xInverse, since
+## the inverse has not yet been calculated.
 
 makeCacheMatrix <- function(x = matrix()) {
   xInverse <- NULL
@@ -23,7 +24,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## cacheSolve will calculate and cache the inverse of a matrix
+## cacheSolve will calculate and cache the inverse of a matrix. If the inverse has already been
+## calculated, it would have been cached and therefore a call of the function will simply get the
+## cached inverse.
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
